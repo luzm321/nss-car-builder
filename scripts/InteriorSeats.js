@@ -10,7 +10,7 @@ export const InteriorSeats = () => {
 
     const listItems = interiors.map(interior => {
         return `<li>
-            <input type="radio" name="interior" value="${interior.id}" /> ${interior.seatType};
+            <input type="radio" name="interior" value="${interior.id}" /> ${interior.seatType}
         </li>`
     });
 

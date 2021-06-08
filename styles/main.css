@@ -1,0 +1,41 @@
+@import "details.css";
+
+* {
+    font-family: 'Kaushan Script', cursive;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	color: rgb(13, 80, 80);
+	font-size: 20px;
+	line-height: 1.5;
+}
+
+h1 {
+    text-align: center;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    letter-spacing: 2px;
+}
+
+ul {
+    list-style-type: none;
+    padding-inline-start: 0.25em;
+}
+
+#designButton {
+    margin: 5rem 0 2rem 47rem;
+    padding: 0.5rem;
+    background-color: rgb(49, 47, 47);
+    color: whitesmoke;
+    font-size: 1.25em;
+}
+
+.customDesigns {
+    font-size: 25px;
+    margin-left: 27em;
+}

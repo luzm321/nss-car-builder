@@ -10,7 +10,7 @@ export const TechnologyPackages = () => {
 
     const listItems = technologies.map(technology => {
         return `<li>
-            <input type="radio" name="technology" value="${technology.id}" /> ${technology.techCapability};
+            <input type="radio" name="technology" value="${technology.id}" /> ${technology.techCapability}
         </li>`
     });
 

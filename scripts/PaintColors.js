@@ -10,7 +10,7 @@ export const PaintColors = () => {
 
     const listItems = colors.map(color => {
         return `<li>
-            <input type="radio" name="color" value="${color.id}" /> ${color.paintColor};
+            <input type="radio" name="color" value="${color.id}" /> ${color.paintColor}
         </li>`
     });
 
