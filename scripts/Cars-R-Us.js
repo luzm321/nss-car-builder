@@ -2,9 +2,19 @@ import { PaintColors } from "./PaintColors.js";
 import { InteriorSeats } from "./InteriorSeats.js";
 import { TechnologyPackages } from "./TechnologyPackages.js";
 import { WheelTypes } from "./WheelTypes.js";
-// import { Designs } from "./Designs.js";
+import { Designs } from "./Designs.js";
+import { addCustomDesign } from "./database.js";
 
 
+// Add click event listener and implement/invoke addCustomDesign function to the Create Car Design button by targeting its id
+document.addEventListener(
+    "click",
+    (event) => {
+        if (event.target.id === "designButton") {
+            addCustomDesign();
+        };
+    }
+);
 
 
 export const CarBuilder = () => {
@@ -33,6 +43,7 @@ export const CarBuilder = () => {
     </article>
     <article class="customDesigns">
         <h2>Custom Car Designs</h2>
+        ${Designs()}
     </article>
 `
 };

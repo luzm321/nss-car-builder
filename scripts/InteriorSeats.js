@@ -7,7 +7,7 @@ document.addEventListener(
     (event) => {
         if (event.target.name === "interior") {
             setInterior(parseInt(event.target.value));
-            window.alert(`User chose interior ${event.target.value}`);
+            // window.alert(`User chose interior ${event.target.value}`);
         };
     }
 );

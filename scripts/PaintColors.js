@@ -7,7 +7,7 @@ document.addEventListener(
     (event) => {
         if (event.target.name === "color") {
             setColor(parseInt(event.target.value));
-            window.alert(`User chose color ${event.target.value}`);
+            // window.alert(`User chose color ${event.target.value}`);
         };
     }
 );
