@@ -7,7 +7,7 @@ document.addEventListener(
     (event) => {
         if (event.target.name === "wheel") {
             setWheel(parseInt(event.target.value));
-            window.alert(`User chose wheel ${event.target.value}`);
+            // window.alert(`User chose wheel ${event.target.value}`);
         };
     }
 );

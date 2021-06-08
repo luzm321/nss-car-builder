@@ -81,4 +81,25 @@ export const setWheel = (id) => {
     database.designBuilder.wheelId = id;
 };
 
+// function responsible for changing permanent state of customDesign, once changed permanent state, it dispatches a custom event.
 
+export const addCustomDesign = () => {
+    // Copy the current state of user choices
+    const newDesign = {...database.designBuilder}
+
+    // Add a new primary key to the object
+    const lastIndex = database.customDesigns.length - 1
+    newDesign.id = database.customDesigns[lastIndex].id + 1
+
+    // Add a timestamp to the order
+    newDesign.timestamp = Date.now()
+
+    // Add the new order object to custom orders state
+    database.customDesigns.push(newDesign)
+
+    // Reset the temporary state for user choices
+    database.designBuilder = {}
+
+    // Broadcast a notification that permanent state has changed
+    document.dispatchEvent(new CustomEvent("stateChanged"))
+};

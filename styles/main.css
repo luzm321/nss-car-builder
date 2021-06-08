@@ -28,7 +28,7 @@ ul {
 }
 
 #designButton {
-    margin: 5rem 0 2rem 47rem;
+    margin: 5rem 0 3.3rem 47rem;
     padding: 0.5rem;
     background-color: rgb(49, 47, 47);
     color: whitesmoke;
@@ -37,5 +37,5 @@ ul {
 
 .customDesigns {
     font-size: 25px;
-    margin-left: 27em;
+    margin-left: 2em;
 }
