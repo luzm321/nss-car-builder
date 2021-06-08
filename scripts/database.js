@@ -41,6 +41,8 @@ const database = {
     }
 };
 
+// Getting state functions:
+
 export const getColors = () => {
     return database.colors.map(color => ({...color}));
 };
@@ -56,6 +58,12 @@ export const getTechnologies = () => {
 export const getWheels = () => {
     return database.wheels.map(wheel => ({...wheel}));
 };
+
+export const getDesigns = () => {
+    return database.customDesigns.map(design => ({...design}));
+};
+
+// Setting state functions:
 
 export const setColor = (id) => {
     database.designBuilder.colorId = id;
