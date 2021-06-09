@@ -13,4 +13,4 @@ Generating custom events,
 Handling custom events,
 State management,
 Displaying state as HTML,
-User input with radio options,
+User input with radio options
