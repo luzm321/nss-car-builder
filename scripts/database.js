@@ -23,6 +23,11 @@ const database = {
         { id: 3, wheelType: "18-inch Pair Spoke Silver", price: 675 },
         { id: 4, wheelType: "18-inch Pair Spoke Black", price: 825}
     ],
+    vehicleModels: [
+        { id: 1, type: "Car" },
+        { id: 2, type: "SUV" },
+        { id: 3, type: "Truck"}
+    ],
     customDesigns: [
         {
             id: 1,
@@ -30,6 +35,7 @@ const database = {
             interiorId: 3,
             technologyId: 4,
             wheelId: 3,
+            vehicleModelId: 1,
             timestamp: 1614659931693
         }
     ],
@@ -37,7 +43,8 @@ const database = {
         colorId: "",
         interiorId: "",
         technologyId: "",
-        wheelId: ""
+        wheelId: "",
+        vehicleModelId: ""
     }
 };
 
@@ -58,6 +65,8 @@ export const getTechnologies = () => {
 export const getWheels = () => {
     return database.wheels.map(wheel => ({...wheel}));
 };
+
+export const getVehicleModels = () => database.vehicleModels.map(vehicleModel => ({...vehicleModel}));
 
 export const getDesigns = () => {
     return database.customDesigns.map(design => ({...design}));
@@ -81,6 +90,10 @@ export const setWheel = (id) => {
     database.designBuilder.wheelId = id;
 };
 
+export const setVehicleModel = (id) => {
+    database.designBuilder.vehicleModelId = id;
+};
+
 // function responsible for changing permanent state of customDesign, once changed permanent state, it dispatches a custom event.
 
 export const addCustomDesign = () => {
@@ -89,7 +102,8 @@ export const addCustomDesign = () => {
 
     // Add a new primary key to the object
     const lastIndex = database.customDesigns.length - 1
-    newDesign.id = database.customDesigns[lastIndex].id + 1
+    newDesign.id = lastIndex >= 0 ? database.customDesigns[lastIndex].id + 1 : 1
+    // newDesign.id = database.customDesigns[lastIndex].id + 1
 
     // Add a timestamp to the order
     newDesign.timestamp = Date.now()
