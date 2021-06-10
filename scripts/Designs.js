@@ -1,56 +1,39 @@
-import { getDesigns, getColors, getInteriors, getTechnologies, getWheels } from "./database.js";
+import { getDesigns, getColors, getInteriors, getTechnologies, getWheels, getVehicleModels } from "./database.js";
 
 const colors = getColors();
 const interiors = getInteriors();
 const technologies = getTechnologies();
 const wheels = getWheels();
+const vehicleModels = getVehicleModels();
 
 
 // The function buildDesignListItem is responsible for building the custom design order list, finding the prices of each component (color, 
 //interior, technology, and wheel) using find() method, calculating the total cost of the custom design order that the user chooses, then 
 //returning the value of the design order with html string interpolation.
 
-//In the buildDesignListItem function, there are two ways of calculating total cost of design order: 1st is by declaring a totalCost variable
-//and initializing value to 0, then use += operator on each component prices found to add to the totalCost (lines 17, 25, 33, 41, 49 that are
-//commented out). 2nd is by declaring totalCost variable on line 52 and storing in it the value of adding all 4 component prices depending on 
-//the user choice.
-
 const buildDesignListItem = (design) => {
-    // let totalCost = 0;
 // The function you pass to find() must return true/false
-    const foundColor = colors.find(
-        (color) => {
-            return color.id === design.colorId;
-        } 
-    );
+    const colorDesign = colors.find(color => color.id === design.colorId);
+    const interiorDesign = interiors.find(interior => interior.id === design.interiorId)
+    const technologyDesign = technologies.find(technology => technology.id === design.technologyId)
+    const wheelDesign = wheels.find(wheel => wheel.id === design.wheelId);
+    const vehicleModelDesign = vehicleModels.find(vehicleModel => vehicleModel.id === design.vehicleModelId);
 
-    // totalCost += foundColor.price;
+    let sumAmount = colorDesign.price + interiorDesign.price + technologyDesign.price + wheelDesign.price;
 
-    const foundInterior = interiors.find(
-        (interior) => {
-            return interior.id === design.interiorId;  
-        }
-    );
+    const calculateCost = () => {
+        if (vehicleModelDesign.id === 2) {
+            sumAmount *= 1.5;
+        } else if (vehicleModelDesign.id === 3) {
+            sumAmount *= 2.25;
+        } else {
+            sumAmount = sumAmount;
+        };
 
-    // totalCost += foundInterior.price;
+        return sumAmount;
+    };
 
-    const foundTechnology = technologies.find(
-        (technology) => {
-            return technology.id === design.technologyId;
-        }
-    );
-
-    // totalCost += foundTechnology.price;
-
-    const foundWheel = wheels.find(
-        (wheel) => {
-            return wheel.id === design.wheelId;
-        }
-    );
-
-    // totalCost += foundWheel.price;
-
-    let totalCost = foundColor.price + foundInterior.price + foundTechnology.price + foundWheel.price;
+    const totalCost = calculateCost();
 
     const costString = totalCost.toLocaleString("en-US", {
         style: "currency",

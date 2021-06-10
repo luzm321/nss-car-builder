@@ -28,7 +28,7 @@ ul {
 }
 
 #designButton {
-    margin: 5rem 0 3.3rem 47rem;
+    margin: 3rem 0 3.3rem 53rem;
     padding: 0.5rem;
     background-color: rgb(49, 47, 47);
     color: whitesmoke;
@@ -38,4 +38,15 @@ ul {
 .customDesigns {
     font-size: 25px;
     margin-left: 2em;
+}
+
+.modelType {
+    display: inline;
+    font-size: 24px;
+    padding: 2em 0 1em 0;
+}
+
+.models {
+    text-align: center;
+    padding: 1.5em;
 }

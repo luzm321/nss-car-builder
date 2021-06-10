@@ -2,6 +2,7 @@ import { PaintColors } from "./PaintColors.js";
 import { InteriorSeats } from "./InteriorSeats.js";
 import { TechnologyPackages } from "./TechnologyPackages.js";
 import { WheelTypes } from "./WheelTypes.js";
+import { VehicleModels } from "./VehicleModels.js";
 import { Designs } from "./Designs.js";
 import { addCustomDesign } from "./database.js";
 
@@ -37,6 +38,9 @@ export const CarBuilder = () => {
             <h2>Wheel Types</h2>
             ${WheelTypes()}
         </section>
+    </article>
+    <article class="models">
+        ${VehicleModels()}
     </article>
     <article>
         <button id="designButton">Create Car Design</button>
